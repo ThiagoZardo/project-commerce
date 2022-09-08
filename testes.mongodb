@@ -1,7 +1,10 @@
 use("commerce")
 db.produtos.find(
-  { vendidos: { $gt: 50, $lt: 100 } },
-  { _id: 0, nome: 1, vendidos: 1 }).sort({ vendidos: 1 });
+  { $or: [{ curtidas: 36}, { vendidos: 85 }] },
+  { _id: 0, nome: 1, curtidas: 1, vendidos: 1 },
+);
+
+db.produtos.find({ $or: [{ curtidas: { $lt: 20 } }, { vendidas: 10 }] });
 
 db.produtos.find(
   { vendidos: { $elemMatch: { $gt: 50, $lt: 100 } } });
