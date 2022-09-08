@@ -1,0 +1,1 @@
+db.produtos.findOne({ $expr: "vendidos" }, { _id: 0, nome: 1, vendidos: 1 });
