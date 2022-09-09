@@ -1,9 +1,9 @@
 use("commerce")
-totalProdutos = db.produtos.countDocuments({});
-db.resumoProdutos.insertMany({
-  "franquia": "McDonalds",
-  "totalProdutos": totalProdutos,
+db.resumoProdutos.insertOne({
+  franquia: "McDonalds",
+  totalProdutos: db.produtos.countDocuments({}),
 });
+db.resumoProdutos.find({}, { _id: 0 });
 
 use("commerce")
 db.produtos.countDocuments({});
