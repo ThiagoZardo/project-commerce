@@ -1,15 +1,8 @@
 use("commerce")
-db.produtos.deleteMany(
-  { curtidas: { $lt: 50 } },
-).find({}, { _id: 0, nome: 1, curtidas: 1 });
-
-db.produtos.find({ $or: [{ curtidas: { $lt: 20 } }, { vendidas: 10 }] });
-
 db.produtos.find(
-  { vendidos: { $elemMatch: { $gt: 50, $lt: 100 } } });
-  { _id: 0, nome: 1, vendidos: 1 }).sort({ vendidos: 1 });
-
-db.produtos.updateMany(
-  { curtidas: { $lt: 50 } },
-  { $unset: { } }
+  { valoresNutricionais: { $elemMatch: { tipo: "calorias", quantidade: { $lt: 500 } } } },
+  { _id: 0, nome: 1 }
 );
+
+use("commerce")
+db.produtos.find({});
