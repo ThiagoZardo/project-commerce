@@ -1,7 +1,7 @@
 use("commerce")
 db.produtos.updateMany(
-  { $not: { nome: { $eq: "McChicken" } } },
-  { $push: { ingredientes: "ketchup"  } }
+  { nome: { $not: { $eq: "McChicken" } } },
+  { $addToSet: { ingredientes: "ketchup" } },
 );
 
 
