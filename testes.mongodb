@@ -1,5 +1,5 @@
 use("commerce")
-db.produtos.countDocuments({ nome: { $regex: /Mc/i } });
+db.produtos.countDocuments({ ingredientes: { $size: 4 } });
 
 
 // Mc 
