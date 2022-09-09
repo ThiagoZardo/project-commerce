@@ -1,21 +1,9 @@
 use("commerce")
 db.produtos.updateMany(
-  { nome: { $not: { $eq: "McChicken" } } },
-  { $addToSet: { ingredientes: "ketchup" } },
+  { },
+  { $set: { criadoPor: "Ronald McDonald" } },
 );
 
-
-use("commerce")
-db.produtos.find({}, { _id: 0, nome: 1, ingredientes: 1 });
-
-use("commerce")
-db.produtos.find({});
-
-
-use("commerce")
-db.produtos.find(
-  { nome: { $not: { $eq:"Big Mac", "McChicken" } } }, 
-  { _id: 0, nome: 1, curtidas: 1, vendidos: 1 });
 
 use("commerce")
 db.produtos.find({});
